@@ -14,14 +14,14 @@ import xianhhh.Utils.RenderUtils;
 
 import java.awt.*;
 
-public class GameMainScreen extends Screen {
+public class CialloGameMainScreen extends Screen {
 
     private Color ccc = new Color(0, 0, 0, 40);
     private Color tsc = new Color(1f, 1f, 1f, 1f);
     private final ResourceLocation r = new ResourceLocation("pc/dick.png");
     private final ResourceLocation q = new ResourceLocation("pc/qlwh.png");
 
-    public GameMainScreen() {
+    public CialloGameMainScreen() {
         super(Component.translatable("narrator.screen.title"));
     }
 

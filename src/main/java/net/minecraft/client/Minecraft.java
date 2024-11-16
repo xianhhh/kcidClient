@@ -37,7 +37,6 @@ import com.mojang.logging.LogUtils;
 import com.mojang.realmsclient.client.RealmsClient;
 import com.mojang.realmsclient.gui.RealmsDataFetcher;
 
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -101,7 +100,6 @@ import net.minecraft.client.gui.screens.Overlay;
 import net.minecraft.client.gui.screens.PauseScreen;
 import net.minecraft.client.gui.screens.ProgressScreen;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.TitleScreen;
 import net.minecraft.client.gui.screens.advancements.AdvancementsScreen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
@@ -253,7 +251,7 @@ import org.joml.Matrix4f;
 import org.lwjgl.util.tinyfd.TinyFileDialogs;
 import org.slf4j.Logger;
 import xianhhh.Client.Client;
-import xianhhh.Client.GameMainScreen;
+import xianhhh.Client.CialloGameMainScreen;
 
 @OnlyIn(Dist.CLIENT)
 public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements WindowEventHandler {
@@ -612,7 +610,7 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
             QuickPlay.connect(this, p_299870_.quickPlayData(), p_299870_.realmsClient());
          } else {
             //this.setScreen(new TitleScreen(true));
-            this.setScreen(new GameMainScreen());
+            this.setScreen(new CialloGameMainScreen());
          }
 
       };
@@ -745,7 +743,7 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
       }
 
       //this.setScreen(new TitleScreen());
-      this.setScreen(new GameMainScreen());
+      this.setScreen(new CialloGameMainScreen());
       this.addResourcePackLoadFailToast((Component)null);
    }
 
@@ -1033,7 +1031,7 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
 
       if (p_91153_ == null && this.level == null) {
          //p_91153_ = new TitleScreen();
-         p_91153_ = new GameMainScreen();
+         p_91153_ = new CialloGameMainScreen();
       } else if (p_91153_ == null && this.player.isDeadOrDying()) {
          if (this.player.shouldShowDeathScreen()) {
             p_91153_ = new DeathScreen((Component)null, this.level.getLevelData().isHardcore());

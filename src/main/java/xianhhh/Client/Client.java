@@ -46,8 +46,8 @@ public class Client {
                         while (true) {
                             if (mc.screen != null) {
                                 if(mc.screen instanceof TitleScreen) {
-                                    mc.setScreen(new GameMainScreen());
-                                }else if(!(mc.screen instanceof GameMainScreen)){
+                                    mc.setScreen(new CialloGameMainScreen());
+                                }else if(!(mc.screen instanceof CialloGameMainScreen)){
                                     //System.out.println(mc.screen.toString());
                                 }
                             }
