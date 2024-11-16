@@ -1,11 +1,12 @@
 package net.minecraft.nbt;
 
+import net.minecraft.Util;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 import java.io.UTFDataFormatException;
 import java.util.Objects;
-import net.minecraft.Util;
 
 public class StringTag implements Tag {
    private static final int SELF_SIZE_IN_BYTES = 36;

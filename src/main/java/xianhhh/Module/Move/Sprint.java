@@ -1,7 +1,6 @@
 package xianhhh.Module.Move;
 
 import com.google.common.eventbus.Subscribe;
-import net.minecraft.server.dedicated.Settings;
 import xianhhh.Event.Events.TickEvent;
 import xianhhh.Module.Module;
 import xianhhh.Setting.Settings.BoolSetting;

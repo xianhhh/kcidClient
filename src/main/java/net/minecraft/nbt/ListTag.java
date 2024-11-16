@@ -2,6 +2,7 @@ package net.minecraft.nbt;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;

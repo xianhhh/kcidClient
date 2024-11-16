@@ -1,6 +1,7 @@
 package xianhhh.Client;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import xianhhh.Client.ClickGui.ClickGui;
 import xianhhh.Command.CommandManager;
@@ -22,6 +23,15 @@ public class Client {
     public static CommandManager commandManager;
 
     public static final String NAME = "D1CK-Client";
+
+    public static final Screen gameMainScreen = set("ciallo");
+
+    private static Screen set(String name){
+        switch (name) {
+            case "ciallo":return new CialloGameMainScreen();
+        }
+        return null;
+    }
 
     public static void Start() {
         modManager = new ModuleManager();

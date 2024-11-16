@@ -2,16 +2,17 @@ package com.mojang.blaze3d.preprocessor;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
-import java.util.List;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.annotation.Nullable;
 import net.minecraft.FileUtil;
 import net.minecraft.Util;
 import net.minecraft.util.StringUtil;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @OnlyIn(Dist.CLIENT)
 public abstract class GlslPreprocessor {

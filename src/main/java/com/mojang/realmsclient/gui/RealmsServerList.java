@@ -1,14 +1,11 @@
 package com.mojang.realmsclient.gui;
 
 import com.mojang.realmsclient.dto.RealmsServer;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.*;
 
 @OnlyIn(Dist.CLIENT)
 public class RealmsServerList implements Iterable<RealmsServer> {

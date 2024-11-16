@@ -237,7 +237,6 @@ import org.joml.Matrix4f;
 import org.lwjgl.util.tinyfd.TinyFileDialogs;
 import org.slf4j.Logger;
 import xianhhh.Client.Client;
-import xianhhh.Client.CialloGameMainScreen;
 
 @OnlyIn(Dist.CLIENT)
 public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements WindowEventHandler {
@@ -595,7 +594,7 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
          if (p_299870_ != null && p_299870_.quickPlayData().isEnabled()) {
             QuickPlay.connect(this, p_299870_.quickPlayData(), p_299870_.realmsClient());
          } else {
-            this.setScreen(new TitleScreen(true));
+            this.setScreen(Client.gameMainScreen);
             //this.setScreen(new CialloGameMainScreen());
          }
 
@@ -728,7 +727,7 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
          this.disconnect();
       }
 
-      this.setScreen(new TitleScreen());
+      this.setScreen(Client.gameMainScreen);
       //this.setScreen(new CialloGameMainScreen());
       this.addResourcePackLoadFailToast((Component)null);
    }
@@ -1016,7 +1015,7 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
       }
 
       if (p_91153_ == null && this.level == null) {
-         p_91153_ = new TitleScreen();
+         p_91153_ = Client.gameMainScreen;
          //p_91153_ = new CialloGameMainScreen();
       } else if (p_91153_ == null && this.player.isDeadOrDying()) {
          if (this.player.shouldShowDeathScreen()) {

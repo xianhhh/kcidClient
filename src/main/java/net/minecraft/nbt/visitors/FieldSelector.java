@@ -1,7 +1,8 @@
 package net.minecraft.nbt.visitors;
 
-import java.util.List;
 import net.minecraft.nbt.TagType;
+
+import java.util.List;
 
 public record FieldSelector(List<String> path, TagType<?> type, String name) {
    public FieldSelector(TagType<?> p_202514_, String p_202515_) {

@@ -1,10 +1,11 @@
 package net.minecraft.nbt.visitors;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.StreamTagVisitor;
 import net.minecraft.nbt.TagType;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class SkipFields extends CollectToTag {
    private final Deque<FieldTree> stack = new ArrayDeque<>();

@@ -13,7 +13,7 @@ public class HelpCommand extends Command {
     public boolean execute(String[] args) {
         for(Command command : Client.commandManager.commands){
             int size = command.error().split("['|']").length - 1;
-            PlayerUtils.sendMessage(command.getName() + ": " + command.error().split("['|']")[size].replaceAll(" ",""));
+            PlayerUtils.sendMessage(command.getName() + ":" + command.error().split("['|']")[size]);
         }
         return true;
     }

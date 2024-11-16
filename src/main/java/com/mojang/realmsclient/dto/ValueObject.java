@@ -1,10 +1,11 @@
 package com.mojang.realmsclient.dto;
 
 import com.google.gson.annotations.SerializedName;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 
 @OnlyIn(Dist.CLIENT)
 public abstract class ValueObject {

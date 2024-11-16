@@ -5,8 +5,6 @@ import net.minecraft.client.gui.GuiGraphics;
 import xianhhh.Module.Module;
 import xianhhh.Setting.Setting;
 
-import java.awt.*;
-
 public class BoolSetting extends Setting{
     private boolean value;
     public BoolSetting(boolean value,String text, Module parent) {

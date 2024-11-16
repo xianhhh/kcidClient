@@ -6,11 +6,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.logging.LogUtils;
-import java.util.Iterator;
-import java.util.List;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.slf4j.Logger;
+
+import java.util.Iterator;
+import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class RealmsServerPlayerLists extends ValueObject {

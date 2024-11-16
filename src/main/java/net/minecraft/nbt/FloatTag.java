@@ -1,9 +1,10 @@
 package net.minecraft.nbt;
 
+import net.minecraft.util.Mth;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
-import net.minecraft.util.Mth;
 
 public class FloatTag extends NumericTag {
    private static final int SELF_SIZE_IN_BYTES = 12;

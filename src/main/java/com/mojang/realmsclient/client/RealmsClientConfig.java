@@ -1,9 +1,10 @@
 package com.mojang.realmsclient.client;
 
-import java.net.Proxy;
-import javax.annotation.Nullable;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import javax.annotation.Nullable;
+import java.net.Proxy;
 
 @OnlyIn(Dist.CLIENT)
 public class RealmsClientConfig {

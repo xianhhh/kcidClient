@@ -3,11 +3,12 @@ package net.minecraft.core;
 import com.google.common.base.MoreObjects;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
-import java.util.stream.IntStream;
-import javax.annotation.concurrent.Immutable;
 import net.minecraft.Util;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.Mth;
+
+import javax.annotation.concurrent.Immutable;
+import java.util.stream.IntStream;
 
 @Immutable
 public class Vec3i implements Comparable<Vec3i> {

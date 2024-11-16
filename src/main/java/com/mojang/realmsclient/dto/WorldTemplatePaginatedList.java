@@ -6,12 +6,13 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.logging.LogUtils;
 import com.mojang.realmsclient.util.JsonUtils;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.slf4j.Logger;
+
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class WorldTemplatePaginatedList extends ValueObject {

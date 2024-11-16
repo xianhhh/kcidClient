@@ -7,12 +7,13 @@ import com.mojang.realmsclient.dto.RealmsServer;
 import com.mojang.realmsclient.gui.task.DataFetcher;
 import com.mojang.realmsclient.gui.task.RepeatedDelayStrategy;
 import com.mojang.realmsclient.util.RealmsPersistence;
-import java.time.Duration;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 import net.minecraft.Util;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @OnlyIn(Dist.CLIENT)
 public class RealmsDataFetcher {

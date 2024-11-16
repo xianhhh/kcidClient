@@ -1,9 +1,10 @@
 package net.minecraft.core.particles;
 
 import com.mojang.serialization.Codec;
-import java.util.function.Function;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+
+import java.util.function.Function;
 
 public class ParticleTypes {
    public static final SimpleParticleType AMBIENT_ENTITY_EFFECT = register("ambient_entity_effect", false);

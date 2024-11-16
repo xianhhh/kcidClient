@@ -1,7 +1,6 @@
 package com.mojang.realmsclient.gui.screens;
 
 import com.mojang.realmsclient.dto.Backup;
-import java.util.Locale;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
@@ -15,6 +14,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.realms.RealmsScreen;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.Locale;
 
 @OnlyIn(Dist.CLIENT)
 public class RealmsBackupInfoScreen extends RealmsScreen {

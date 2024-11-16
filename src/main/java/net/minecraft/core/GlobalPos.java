@@ -2,9 +2,10 @@ package net.minecraft.core;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import java.util.Objects;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
+
+import java.util.Objects;
 
 public final class GlobalPos {
    public static final Codec<GlobalPos> CODEC = RecordCodecBuilder.create((p_122642_) -> {

@@ -2,15 +2,16 @@ package com.mojang.realmsclient.client;
 
 import com.google.common.collect.Lists;
 import com.mojang.realmsclient.dto.RegionPingResult;
+import net.minecraft.Util;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import org.apache.commons.io.IOUtils;
+
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.util.Comparator;
 import java.util.List;
-import net.minecraft.Util;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import org.apache.commons.io.IOUtils;
 
 @OnlyIn(Dist.CLIENT)
 public class Ping {

@@ -1,6 +1,5 @@
 package xianhhh.Module;
 
-import com.mojang.blaze3d.audio.OpenAlUtil;
 import net.minecraft.client.Minecraft;
 import xianhhh.Module.Fun.FreeCamera;
 import xianhhh.Module.Fun.Sound;
@@ -8,8 +7,8 @@ import xianhhh.Module.Move.Sprint;
 import xianhhh.Module.Player.PlayerTest;
 import xianhhh.Module.Render.ClickGuiZ;
 import xianhhh.Module.Render.Logo;
+import xianhhh.Module.Render.TargetInformation;
 import xianhhh.Module.Render.Title;
-import xianhhh.Setting.SettingBase;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -81,6 +80,7 @@ public class ModuleManager {
        addModule(new xianhhh.Module.Render.ArrayList());
        addModule(new ClickGuiZ());
        addModule(new FreeCamera());
+       addModule(new TargetInformation());
        //addModule(new TabGui());
     }
 }

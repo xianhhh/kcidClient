@@ -1,7 +1,6 @@
 package com.mojang.blaze3d.platform;
 
 import com.google.common.base.Charsets;
-import java.nio.ByteBuffer;
 import net.minecraft.util.StringDecomposer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -10,6 +9,8 @@ import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWErrorCallbackI;
 import org.lwjgl.system.MemoryUtil;
+
+import java.nio.ByteBuffer;
 
 @OnlyIn(Dist.CLIENT)
 public class ClipboardManager {

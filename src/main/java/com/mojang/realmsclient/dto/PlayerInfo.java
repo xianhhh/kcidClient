@@ -1,9 +1,10 @@
 package com.mojang.realmsclient.dto;
 
 import com.google.gson.annotations.SerializedName;
-import java.util.UUID;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.UUID;
 
 @OnlyIn(Dist.CLIENT)
 public class PlayerInfo extends ValueObject implements ReflectionBasedSerialization {

@@ -2,12 +2,7 @@ package com.mojang.realmsclient.gui.screens;
 
 import com.mojang.realmsclient.util.LevelType;
 import com.mojang.realmsclient.util.WorldGenerationInfo;
-import java.util.function.Consumer;
-import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.CycleButton;
-import net.minecraft.client.gui.components.EditBox;
-import net.minecraft.client.gui.components.StringWidget;
+import net.minecraft.client.gui.components.*;
 import net.minecraft.client.gui.layouts.CommonLayouts;
 import net.minecraft.client.gui.layouts.HeaderAndFooterLayout;
 import net.minecraft.client.gui.layouts.LinearLayout;
@@ -16,6 +11,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.realms.RealmsScreen;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.function.Consumer;
 
 @OnlyIn(Dist.CLIENT)
 public class RealmsResetNormalWorldScreen extends RealmsScreen {

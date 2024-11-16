@@ -1,8 +1,9 @@
 package net.minecraft.nbt.visitors;
 
+import net.minecraft.nbt.TagType;
+
 import java.util.HashMap;
 import java.util.Map;
-import net.minecraft.nbt.TagType;
 
 public record FieldTree(int depth, Map<String, TagType<?>> selectedFields, Map<String, FieldTree> fieldsToRecurse) {
    private FieldTree(int p_202527_) {

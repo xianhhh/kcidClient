@@ -3,13 +3,14 @@ package net.minecraft.core;
 import com.google.common.collect.Maps;
 import com.mojang.logging.LogUtils;
 import com.mojang.math.Transformation;
-import java.util.Map;
-import java.util.function.Supplier;
 import net.minecraft.Util;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 import org.slf4j.Logger;
+
+import java.util.Map;
+import java.util.function.Supplier;
 
 public class BlockMath {
    private static final Logger LOGGER = LogUtils.getLogger();

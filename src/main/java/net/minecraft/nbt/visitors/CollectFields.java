@@ -1,12 +1,13 @@
 package net.minecraft.nbt.visitors;
 
 import com.google.common.collect.ImmutableSet;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Set;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.StreamTagVisitor;
 import net.minecraft.nbt.TagType;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Set;
 
 public class CollectFields extends CollectToTag {
    private int fieldsToGetCount;

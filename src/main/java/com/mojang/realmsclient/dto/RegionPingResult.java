@@ -1,9 +1,10 @@
 package com.mojang.realmsclient.dto;
 
 import com.google.gson.annotations.SerializedName;
-import java.util.Locale;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.Locale;
 
 @OnlyIn(Dist.CLIENT)
 public class RegionPingResult extends ValueObject implements ReflectionBasedSerialization {

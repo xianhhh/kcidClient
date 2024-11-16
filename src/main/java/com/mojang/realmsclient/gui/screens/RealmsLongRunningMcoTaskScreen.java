@@ -3,8 +3,6 @@ package com.mojang.realmsclient.gui.screens;
 import com.mojang.logging.LogUtils;
 import com.mojang.realmsclient.exception.RealmsDefaultUncaughtExceptionHandler;
 import com.mojang.realmsclient.util.task.LongRunningTask;
-import java.time.Duration;
-import javax.annotation.Nullable;
 import net.minecraft.client.GameNarrator;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
@@ -19,6 +17,9 @@ import net.minecraft.realms.RepeatedNarrator;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.slf4j.Logger;
+
+import javax.annotation.Nullable;
+import java.time.Duration;
 
 @OnlyIn(Dist.CLIENT)
 public class RealmsLongRunningMcoTaskScreen extends RealmsScreen {

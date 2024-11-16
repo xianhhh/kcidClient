@@ -1,19 +1,15 @@
 package net.minecraft.core;
 
 import com.mojang.datafixers.util.Either;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.Spliterator;
-import java.util.function.Function;
-import java.util.stream.Stream;
-import javax.annotation.Nullable;
 import net.minecraft.Util;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.VisibleForTesting;
+
+import javax.annotation.Nullable;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 public interface HolderSet<T> extends Iterable<Holder<T>> {
    Stream<Holder<T>> stream();
