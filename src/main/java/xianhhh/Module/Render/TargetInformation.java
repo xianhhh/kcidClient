@@ -23,6 +23,6 @@ public class TargetInformation extends Module {
         HitResult blockhit =  mc.player.pick(20d,0f,false);
         BlockPos pos = ((BlockHitResult) blockhit).getBlockPos();
         Block block = mc.level.getBlockState(pos).getBlock();
-        RenderUtils.gui.drawString(mc.font,"Target Block: " + pos.getX() + " " + pos.getY() + " " + pos.getZ() + " Name: " + block.asItem(),width/2,height/2,Color.WHITE.getRGB());
+        RenderUtils.gui.drawCenteredString(mc.font,"Target Block: " + pos.getX() + " " + pos.getY() + " " + pos.getZ() + " Name: " + block.asItem(),width/2,height/2,Color.WHITE.getRGB());
     }
 }
