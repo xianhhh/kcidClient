@@ -85,21 +85,7 @@ import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.client.gui.components.toasts.ToastComponent;
 import net.minecraft.client.gui.components.toasts.TutorialToast;
 import net.minecraft.client.gui.font.FontManager;
-import net.minecraft.client.gui.screens.AccessibilityOnboardingScreen;
-import net.minecraft.client.gui.screens.BanNoticeScreens;
-import net.minecraft.client.gui.screens.ChatScreen;
-import net.minecraft.client.gui.screens.ConfirmLinkScreen;
-import net.minecraft.client.gui.screens.DeathScreen;
-import net.minecraft.client.gui.screens.GenericDirtMessageScreen;
-import net.minecraft.client.gui.screens.InBedChatScreen;
-import net.minecraft.client.gui.screens.LevelLoadingScreen;
-import net.minecraft.client.gui.screens.LoadingOverlay;
-import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.gui.screens.OutOfMemoryScreen;
-import net.minecraft.client.gui.screens.Overlay;
-import net.minecraft.client.gui.screens.PauseScreen;
-import net.minecraft.client.gui.screens.ProgressScreen;
-import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.gui.screens.*;
 import net.minecraft.client.gui.screens.advancements.AdvancementsScreen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
@@ -609,8 +595,8 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
          if (p_299870_ != null && p_299870_.quickPlayData().isEnabled()) {
             QuickPlay.connect(this, p_299870_.quickPlayData(), p_299870_.realmsClient());
          } else {
-            //this.setScreen(new TitleScreen(true));
-            this.setScreen(new CialloGameMainScreen());
+            this.setScreen(new TitleScreen(true));
+            //this.setScreen(new CialloGameMainScreen());
          }
 
       };
@@ -742,8 +728,8 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
          this.disconnect();
       }
 
-      //this.setScreen(new TitleScreen());
-      this.setScreen(new CialloGameMainScreen());
+      this.setScreen(new TitleScreen());
+      //this.setScreen(new CialloGameMainScreen());
       this.addResourcePackLoadFailToast((Component)null);
    }
 
@@ -1030,8 +1016,8 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
       }
 
       if (p_91153_ == null && this.level == null) {
-         //p_91153_ = new TitleScreen();
-         p_91153_ = new CialloGameMainScreen();
+         p_91153_ = new TitleScreen();
+         //p_91153_ = new CialloGameMainScreen();
       } else if (p_91153_ == null && this.player.isDeadOrDying()) {
          if (this.player.shouldShowDeathScreen()) {
             p_91153_ = new DeathScreen((Component)null, this.level.getLevelData().isHardcore());
