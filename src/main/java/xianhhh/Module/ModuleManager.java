@@ -77,6 +77,7 @@ public class ModuleManager {
        addModule(new ModuleList());
        addModule(new ClickGuiZ());
        addModule(new FreeCamera());
+       addModule(new WebClickGui());
        addModule(new TargetInformation());
        //addModule(new TabGui());
     }
