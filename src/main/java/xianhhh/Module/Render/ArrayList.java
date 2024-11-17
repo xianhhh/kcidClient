@@ -15,6 +15,14 @@ public class ArrayList extends Module {
     }
     @Subscribe
     public void onRender(RenderEvent r){
-        RenderUtils.drawList(RenderUtils.gui,ModuleManager.EnableModules,Color.BLACK,new Color(0, 0, 0, 70));
+        // NEW ArrayList By PixelSkider
+
+        int y = 0;
+        for (String module : ModuleManager.EnableModules){
+            RenderUtils.gui.drawString(mc.font,module,0,y,new Color(255,255,255,255).getRGB());
+            y += mc.font.lineHeight;
+        }
+
+        // OLD RenderUtils.drawList(RenderUtils.gui,ModuleManager.EnableModules,Color.BLACK,new Color(0, 0, 0, 70));
     }
 }
