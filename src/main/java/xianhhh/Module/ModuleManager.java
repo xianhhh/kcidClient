@@ -7,26 +7,25 @@ import xianhhh.Module.Move.Sprint;
 import xianhhh.Module.Player.PlayerTest;
 import xianhhh.Module.Render.*;
 
-import java.util.ArrayList;
 import java.util.Locale;
 
 public class ModuleManager {
     protected static final Minecraft mc = Minecraft.getInstance();
-    public static ArrayList<Module> temp = new ArrayList<Module>();
+    public static java.util.ArrayList<Module> temp = new java.util.ArrayList<Module>();
     public boolean reload;
-    public static ArrayList<Module> modulesA;
+    public static java.util.ArrayList<Module> modulesA;
 
-    public static ArrayList<String> SmodulesA;
+    public static java.util.ArrayList<String> SmodulesA;
 
-    public static ArrayList<String> EnableModules;
+    public static java.util.ArrayList<String> EnableModules;
 
-    public static ArrayList<Module> EnableModulesM;
+    public static java.util.ArrayList<Module> EnableModulesM;
 
     public ModuleManager() {
-        modulesA = new ArrayList<Module>();
-        SmodulesA = new ArrayList<String>();
-        EnableModules = new ArrayList<String>();
-        EnableModulesM = new ArrayList<Module>();
+        modulesA = new java.util.ArrayList<Module>();
+        SmodulesA = new java.util.ArrayList<String>();
+        EnableModules = new java.util.ArrayList<String>();
+        EnableModulesM = new java.util.ArrayList<Module>();
     }
 
     private void addModule(Module module) {
@@ -34,8 +33,8 @@ public class ModuleManager {
         SmodulesA.add(module.getName());
     }
 
-    public static ArrayList<Module> getModuleFromCategory(Category ct){
-        ArrayList<Module> result = new ArrayList<Module>();
+    public static java.util.ArrayList<Module> getModuleFromCategory(Category ct){
+        java.util.ArrayList<Module> result = new java.util.ArrayList<Module>();
         for(Module m : modulesA){
             if(m.getCategory() == ct){
                 result.add(m);
@@ -74,7 +73,7 @@ public class ModuleManager {
        addModule(new PlayerTest());
        addModule(new Sound());
        addModule(new Logo());
-       addModule(new ModuleList());
+       addModule(new ArrayList());
        addModule(new ClickGuiZ());
        addModule(new FreeCamera());
        addModule(new TargetInformation());
