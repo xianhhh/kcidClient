@@ -5,10 +5,7 @@ import xianhhh.Module.Fun.FreeCamera;
 import xianhhh.Module.Fun.Sound;
 import xianhhh.Module.Move.Sprint;
 import xianhhh.Module.Player.PlayerTest;
-import xianhhh.Module.Render.ClickGuiZ;
-import xianhhh.Module.Render.Logo;
-import xianhhh.Module.Render.TargetInformation;
-import xianhhh.Module.Render.Title;
+import xianhhh.Module.Render.*;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -77,7 +74,7 @@ public class ModuleManager {
        addModule(new PlayerTest());
        addModule(new Sound());
        addModule(new Logo());
-       addModule(new xianhhh.Module.Render.ArrayList());
+       addModule(new ModuleList());
        addModule(new ClickGuiZ());
        addModule(new FreeCamera());
        addModule(new TargetInformation());
