@@ -1,4 +1,4 @@
-package xianhhh.Client;
+package xianhhh.Client.Gui;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
