@@ -1,5 +1,6 @@
 package xianhhh.Client;
 
+import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
@@ -46,7 +47,7 @@ public class Client {
         commandManager = new CommandManager();
         modManager.register();
         commandManager.register();
-        mc.getWindow().setTitle(NAME + " " + "Type: " + mc.getVersionType() + " 1.20.2 ");
+        mc.getWindow().setTitle(NAME + " " + "Type: " + mc.getVersionType() + " " + SharedConstants.getCurrentVersion().getName());
         objects();
     }
 
