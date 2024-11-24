@@ -1,11 +1,6 @@
 package xianhhh.Utils;
 
-/**
- * @author Kalud
- * @website pixelskider.github.io/
- * @since 2024/11/18
- * 用来绘制图片
- */
+
 public class RatioUtil {
     private SizeUtil realSize,fakeSize;
     private int widthRatio,heightRatio;

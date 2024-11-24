@@ -8,11 +8,7 @@ import xianhhh.Utils.RatioUtil;
 import xianhhh.Utils.RenderUtils;
 import xianhhh.Utils.SizeUtil;
 
-/**
- * @author Kalud
- * @website pixelskider.github.io/
- * @since 2024/11/18
- */
+
 public class MainMenuScreen extends Screen {
     public MainMenuScreen() {
         super(Component.translatable("narrator.screen.title"));

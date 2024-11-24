@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
-public class WebUi {
+public class WebUiBase {
 
     private static HttpServer server;
 

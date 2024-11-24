@@ -13,11 +13,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author Kalud
- * @website pixelskider.github.io/
- * @since 2024/11/17
- */
+
 public class StartScreen extends Screen {
     public StartScreen() {
         super(Component.translatable("narrator.screen.title"));

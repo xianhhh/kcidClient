@@ -1,10 +1,6 @@
 package xianhhh.Utils;
 
-/**
- * @author Kalud
- * @website pixelskider.github.io/
- * @since 2024/11/18
- */
+
 public class SizeUtil {
     private int width,height;
     public SizeUtil(int width,int height){
