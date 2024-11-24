@@ -6,6 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.Events.RenderEvent;
 import xianhhh.Module.Module;
 import xianhhh.Utils.RenderUtils;
@@ -17,7 +18,7 @@ public class TargetInformation extends Module {
         super("Target", 0, xianhhh.Module.Category.Render);
     }
 
-    @Subscribe
+    @EventTarget
     public void render(RenderEvent e){
         int width = RenderUtils.gui.guiWidth();
         int height = RenderUtils.gui.guiHeight();

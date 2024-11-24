@@ -2,6 +2,7 @@ package xianhhh.Module.Render;
 
 import com.google.common.eventbus.Subscribe;
 import com.mojang.blaze3d.systems.RenderSystem;
+import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.Events.RenderEvent;
 import xianhhh.Module.Module;
 import xianhhh.Module.ModuleManager;
@@ -15,7 +16,7 @@ public class ArrayList extends Module {
     public ArrayList() {
         super("ArrayList", KeyEvent.VK_B, xianhhh.Module.Category.Render);
     }
-    @Subscribe
+    @EventTarget
     public void onRender(RenderEvent r){
 
         int y = 3;

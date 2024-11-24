@@ -13,13 +13,13 @@ public class WebClickGui extends Module {
         super("WebClickGui", KeyEvent.VK_P, xianhhh.Module.Category.Render);
     }
 
-    @Subscribe
+
     public void onEnable(){
         super.onEnable();
         WebUiBase.start();
     }
 
-    @Subscribe
+
     public void onDisable(){
         super.onDisable();
         WebUiBase.stop();

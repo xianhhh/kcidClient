@@ -3,6 +3,9 @@ package xianhhh.Client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
+import net.minecraft.network.protocol.game.ClientboundPlayerCombatEndPacket;
+import net.minecraft.network.protocol.game.ClientboundPlayerPositionPacket;
+import net.minecraft.network.protocol.game.ServerboundPlayerActionPacket;
 import xianhhh.Client.ClickGui.ClickGui;
 import xianhhh.Client.Gui.CialloGameMainScreen;
 import xianhhh.Client.Gui.StartScreen;
@@ -26,7 +29,8 @@ public class Client {
 
     public static final String NAME = "D1CK-Client";
 
-    public static final Screen gameMainScreen = new StartScreen();
+    public static final Screen startScreen = new StartScreen();
+    public static final Screen gameMainScreen = new CialloGameMainScreen();
 
     private static Screen set(String name){
         switch (name) {
@@ -49,6 +53,7 @@ public class Client {
        mc.getWindow().setTitle(NAME + " " + "Type: " + mc.getVersionType() + and);
     }
 
+
     private static void objects(){
         try {
             Thread screen = new Thread() {
@@ -58,7 +63,7 @@ public class Client {
                         while (true) {
                             if (mc.screen != null) {
                                 if(mc.screen instanceof TitleScreen) {
-                                    mc.setScreen(new StartScreen());
+                                    mc.setScreenOnEndingGame(new CialloGameMainScreen());//防止退出游戏绷端用的 别改
                                 }else if(!(mc.screen instanceof StartScreen)){
                                     //System.out.println(mc.screen.toString());
                                 }

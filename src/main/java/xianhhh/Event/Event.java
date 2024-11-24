@@ -16,11 +16,12 @@ public class Event{
         this.cancel = cancel;
     }
 
-    public boolean isCancel() {
-        return cancel;
+    public boolean isCancelled() {
+        return this.cancel;
     }
 
     public void cancel(){
         this.cancel = true;
     }
+
 }

@@ -1,6 +1,6 @@
 package xianhhh.Event;
 
-import com.google.common.eventbus.EventBus;
+import xianhhh.Event.EventBus.DickEventBus;
 import xianhhh.Exception.EventException;
 
 import java.util.HashMap;
@@ -8,20 +8,16 @@ import java.util.HashMap;
 public class EventHandleT {
     //private EventBus bus;
 
-    private final EventBus bus;
+    private final DickEventBus bus;
 
     public EventHandleT() {
-        bus = new EventBus();
+        bus = new DickEventBus();
         //bus = new AsyncEventBus(Executors.newCachedThreadPool());
     }
 
     public final HashMap<Object, Boolean> zcv = new HashMap<Object, Boolean>();
 
     private final HashMap<Object, Boolean> eventFire = new HashMap<Object, Boolean>();
-
-    private void post(Event e) {
-        bus.post(e);
-    }
 
     private void register(Object obj) {
         zcv.put(obj, true);
@@ -46,17 +42,17 @@ public class EventHandleT {
             case POST:
                 if (obj instanceof Event) {
                     Event v = (Event) obj;
-                    post(v);
+                    bus.post(v);
                 } else {
                     throw new EventException("Not true event");
                 }
                 break;
 
             case REGISTER:
-                register(obj);
+                bus.register(obj);
                 break;
             case UNREGISTER:
-                unregister(obj);
+                bus.unregister(obj);
                 break;
             default:
                 throw new RegisterException("NULL");
@@ -79,7 +75,7 @@ public class EventHandleT {
                         }
 
                         if (!eventFire.get(v)) {
-                            post(v);
+                            bus.post(v);
                         }
                     } else {
                         throw new EventException("Not true event");
@@ -127,10 +123,10 @@ public class EventHandleT {
                             }
 
                             if (!eventFire.get(v) && debug) {
-                                post(v);
+                                bus.post(v);
                                 System.out.println("post: " + v.getName());
                             } else {
-                                post(v);
+                                bus.post(v);
                             }
                         }
                     } else {

@@ -1,6 +1,7 @@
 package xianhhh.Module.Fun;
 
 import com.google.common.eventbus.Subscribe;
+import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.Events.TickEvent;
 import xianhhh.Module.Module;
 
@@ -11,7 +12,7 @@ public class FreeCamera extends Module {
         super("FreeCamera", KeyEvent.VK_F, xianhhh.Module.Category.Fun);
     }
 
-    @Subscribe
+    @EventTarget
     public void onTick(TickEvent e){
 
     }

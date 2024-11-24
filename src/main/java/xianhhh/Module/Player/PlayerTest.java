@@ -2,6 +2,7 @@ package xianhhh.Module.Player;
 
 import com.google.common.eventbus.Subscribe;
 import net.minecraft.world.entity.Entity;
+import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.Events.TickEvent;
 import xianhhh.Module.Module;
 import xianhhh.Utils.WorldUtils;
@@ -13,7 +14,7 @@ public class PlayerTest extends Module {
         super("PlayerTest", KeyEvent.VK_V, xianhhh.Module.Category.Player);
     }
 
-    @Subscribe
+    @EventTarget
     public void onUpdate(TickEvent ev) {
         /*
         Random r = new Random();

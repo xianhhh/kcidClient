@@ -1,6 +1,7 @@
 package xianhhh.Module.Render;
 
 import com.google.common.eventbus.Subscribe;
+import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.Events.RenderEvent;
 import xianhhh.Module.Module;
 import xianhhh.Module.ModuleManager;
@@ -12,7 +13,7 @@ public class Title extends Module {
     public Title() {
         super("Title", KeyEvent.VK_Z, xianhhh.Module.Category.Render);
     }
-    @Subscribe
+    @EventTarget
     public void render(RenderEvent r){
         int y = 60;
         render.gui.drawString(mc.font,mc.fpsString,50,40,new Color(255,255,255).getRGB());
