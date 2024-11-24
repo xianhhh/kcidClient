@@ -17,7 +17,6 @@ public class Sprint extends Module {
 
     @EventTarget
     public void onTick(TickEvent e){
-        e.cancel();
         mc.player.setSprinting(bool.getValue());
     }
 }

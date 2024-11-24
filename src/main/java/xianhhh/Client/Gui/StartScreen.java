@@ -26,7 +26,7 @@ public class StartScreen extends Screen {
         int width = g.guiWidth(), height = g.guiHeight();
         int x = (width - mc.font.width(String.valueOf(baseString))) / 2, y = (height - mc.font.lineHeight) / 2;
 
-        totalTime = totalTime + 30;
+        totalTime +=  30;
         if (totalTime >= 1000){
             baseString.append(".");
             if (Objects.equals(String.valueOf(baseString), "Starting....")){

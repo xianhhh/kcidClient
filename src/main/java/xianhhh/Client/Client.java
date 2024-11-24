@@ -12,6 +12,7 @@ import xianhhh.Client.Gui.StartScreen;
 import xianhhh.Command.CommandManager;
 import xianhhh.Event.EventHandleT;
 import xianhhh.Module.ModuleManager;
+import xianhhh.Utils.ResourcesHelper.ResourcesUtils;
 
 public class Client {
 

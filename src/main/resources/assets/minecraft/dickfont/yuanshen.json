@@ -1,0 +1,9 @@
+{
+  "providers": [
+    {
+      "type": "ttf",
+      "file": "minecraft:dickfont/yuanshen.ttf",
+      "size": 18
+    }
+  ]
+}
