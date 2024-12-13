@@ -12,6 +12,7 @@ import xianhhh.Client.Gui.CialloGameMainScreen;
 import xianhhh.Client.Gui.StartScreen;
 import xianhhh.Command.CommandManager;
 import xianhhh.Event.EventHandleT;
+import xianhhh.ModLoader.ModLoader;
 import xianhhh.Module.ModuleManager;
 import xianhhh.Utils.ResourcesHelper.ResourcesUtils;
 
@@ -47,6 +48,7 @@ public class Client {
         commandManager = new CommandManager();
         modManager.register();
         commandManager.register();
+        ModLoader.registerSelf();
         mc.getWindow().setTitle(NAME + " " + "Type: " + mc.getVersionType() + " " + SharedConstants.getCurrentVersion().getName());
         objects();
     }

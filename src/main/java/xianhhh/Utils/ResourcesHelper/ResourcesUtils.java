@@ -1,11 +1,12 @@
 package xianhhh.Utils.ResourcesHelper;
 
+import xianhhh.ModLoader.Annotation.ModMain;
+
 import java.io.*;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.jar.JarFile;
-
 public class ResourcesUtils {
     private static final File main = new File("C:\\DickClient")
             ,mod = new File("C:\\DickClient\\Mods");
@@ -54,7 +55,7 @@ public class ResourcesUtils {
                     }
                 }
                 for (Method mt : mts) {
-                    mt.invoke(clazz, (Object) null);
+                    mt.invoke(clazz.newInstance());
                 }
             }
         } catch (Exception e) {

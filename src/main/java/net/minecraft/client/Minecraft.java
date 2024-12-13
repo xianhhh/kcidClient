@@ -237,6 +237,8 @@ import org.joml.Matrix4f;
 import org.lwjgl.util.tinyfd.TinyFileDialogs;
 import org.slf4j.Logger;
 import xianhhh.Client.Client;
+import xianhhh.Event.EventHandleT;
+import xianhhh.Event.Events.GameStartEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements WindowEventHandler {
@@ -739,6 +741,7 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
 
    public void run() {
       Client.Start();
+      Client.eventHandle.supe(new GameStartEvent(), EventHandleT.Mode.POST);
       this.gameThread = Thread.currentThread();
       if (Runtime.getRuntime().availableProcessors() > 4) {
          this.gameThread.setPriority(10);
