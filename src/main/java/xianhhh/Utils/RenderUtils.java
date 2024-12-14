@@ -1,11 +1,16 @@
 package xianhhh.Utils;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.phys.AABB;
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
 
-import javax.annotation.Nullable;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -64,7 +69,82 @@ public class RenderUtils {
         g.drawCenteredString(f, s, x, y, c.getRGB());
     }
 
-    public static void fastfill(int topLeft, int bottomRight, @Nullable int changeY, GuiGraphics g, Color c){
+    public static void fastfill(int topLeft, int bottomRight, int changeY, GuiGraphics g, Color c){
         g.fill(topLeft,topLeft,bottomRight,Math.abs(bottomRight - changeY),c.getRGB());
+    }
+
+    public static void renderFaceBox(PoseStack poseStack, AABB aabb, Color color) {
+        Matrix4f matrix4f = poseStack.last().pose();
+        Matrix3f matrix3f = poseStack.last().normal();
+
+        // 获取AABB的边界
+        float x1 = (float) aabb.minX;
+        float y1 = (float) aabb.minY;
+        float z1 = (float) aabb.minZ;
+
+        float x2 = (float) aabb.maxX;
+        float y2 = (float) aabb.maxY;
+        float z2 = (float) aabb.maxZ;
+
+        float r = color.getRed()/255f;
+        float g = color.getGreen()/255f;
+        float b = color.getBlue()/255f;
+        float a = color.getAlpha()/255f;
+
+        RenderSystem.enableBlend();
+        RenderSystem.defaultBlendFunc();
+        RenderSystem.disableDepthTest();
+        RenderSystem.enableCull();
+        RenderSystem.setShader(GameRenderer::getPositionColorShader);
+
+        // 开始绘制面
+        Tesselator tesselator = Tesselator.getInstance();
+        BufferBuilder bufferBuilder = tesselator.getBuilder();
+
+        bufferBuilder.begin(VertexFormat.Mode.TRIANGLE_STRIP, DefaultVertexFormat.POSITION_COLOR);
+
+
+        // 正面
+        bufferBuilder.vertex(matrix4f, x1, y1, z2).color(r, g, b, a).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x2, y1, z2).color(r, g, b, a).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x1, y2, z2).color(r, g, b, a).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x2, y2, z2).color(r, g, b, a).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
+
+        // 背面
+        bufferBuilder.vertex(matrix4f, x2, y1, z1).color(r, g, b, a).normal(matrix3f, 0.0F, 0.0F, -1.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x1, y1, z1).color(r, g, b, a).normal(matrix3f, 0.0F, 0.0F, -1.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x2, y2, z1).color(r, g, b, a).normal(matrix3f, 0.0F, 0.0F, -1.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x1, y2, z1).color(r, g, b, a).normal(matrix3f, 0.0F, 0.0F, -1.0F).endVertex();
+
+        // 左面
+        bufferBuilder.vertex(matrix4f, x1, y1, z1).color(r, g, b, a).normal(matrix3f, 1.0F, 0.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x1, y1, z2).color(r, g, b, a).normal(matrix3f, 1.0F, 0.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x1, y2, z1).color(r, g, b, a).normal(matrix3f, 1.0F, 0.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x1, y2, z2).color(r, g, b, a).normal(matrix3f, 1.0F, 0.0F, 0.0F).endVertex();
+
+        // 右面
+        bufferBuilder.vertex(matrix4f, x2, y1, z2).color(r, g, b, a).normal(matrix3f, -1.0F, 0.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x2, y1, z1).color(r, g, b, a).normal(matrix3f, -1.0F, 0.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x2, y2, z2).color(r, g, b, a).normal(matrix3f, -1.0F, 0.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x2, y2, z1).color(r, g, b, a).normal(matrix3f, -1.0F, 0.0F, 0.0F).endVertex();
+
+        // 顶面
+        bufferBuilder.vertex(matrix4f, x1, y2, z2).color(r, g, b, a).normal(matrix3f, 0.0F, -1.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x2, y2, z2).color(r, g, b, a).normal(matrix3f, 0.0F, -1.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x1, y2, z1).color(r, g, b, a).normal(matrix3f, 0.0F, -1.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x2, y2, z1).color(r, g, b, a).normal(matrix3f, 0.0F, -1.0F, 0.0F).endVertex();
+
+        // 底面
+        bufferBuilder.vertex(matrix4f, x1, y1, z1).color(r, g, b, a).normal(matrix3f, 0.0F, 1.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x2, y1, z1).color(r, g, b, a).normal(matrix3f, 0.0F, 1.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x1, y1, z2).color(r, g, b, a).normal(matrix3f, 0.0F, 1.0F, 0.0F).endVertex();
+        bufferBuilder.vertex(matrix4f, x2, y1, z2).color(r, g, b, a).normal(matrix3f, 0.0F, 1.0F, 0.0F).endVertex();
+
+        tesselator.end();
+
+        RenderSystem.disableBlend();
+        RenderSystem.enableDepthTest();
+        RenderSystem.disableCull();
+        RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
     }
 }

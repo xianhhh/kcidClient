@@ -81,6 +81,10 @@ import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.slf4j.Logger;
+import xianhhh.Client.Client;
+import xianhhh.Event.EventHandleT;
+import xianhhh.Event.Events.Render3DEvent;
+import xianhhh.Event.Events.RenderItemEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class GameRenderer implements AutoCloseable {
@@ -663,7 +667,6 @@ public class GameRenderer implements AutoCloseable {
             this.itemActivationItem = null;
          }
       }
-
    }
 
    @Nullable
@@ -848,7 +851,7 @@ public class GameRenderer implements AutoCloseable {
          if (this.minecraft.options.bobView().get()) {
             this.bobView(p_109121_, p_109123_);
          }
-
+         Client.eventHandle.supe(new RenderItemEvent(p_109121_,p_109122_,p_109123_), EventHandleT.Mode.POST);
       }
    }
 
@@ -988,6 +991,7 @@ public class GameRenderer implements AutoCloseable {
          guigraphics.flush();
          posestack.popPose();
          RenderSystem.applyModelViewMatrix();
+         Client.eventHandle.supe(new Render3DEvent(p_109094_,p_109095_,p_109096_), EventHandleT.Mode.POST);
       }
    }
 

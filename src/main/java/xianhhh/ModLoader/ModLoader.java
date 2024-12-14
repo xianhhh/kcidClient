@@ -4,12 +4,11 @@ import xianhhh.Client.Client;
 import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.EventHandleT;
 import xianhhh.Event.Events.GameStartEvent;
-import xianhhh.ModLoader.Annotation.ModLoad;
+import xianhhh.ModLoader.Annotation.ModLoadMetHod;
 import xianhhh.ModLoader.Annotation.ModMain;
 import xianhhh.Utils.ResourcesHelper.ResourcesUtils;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 public class ModLoader {
-
+    public static final ArrayList<String> modids = new ArrayList<String>();
     public static void registerSelf() {
         Client.eventHandle.supe(new ModLoader(), EventHandleT.Mode.REGISTER);
     }
@@ -33,8 +32,20 @@ public class ModLoader {
         }
         for (File jarFile : mods) {
             Class<?> mainClass = loadMainClassFromJar(jarFile);
-            ResourcesUtils.isModHasMainAndLoadMDAndInvoke(mainClass, ModMain.class, ModLoad.class);
+            ResourcesUtils.isModHasMainAndLoadMDAndInvoke(mainClass, ModMain.class, ModLoadMetHod.class);
+            if(ResourcesUtils.isAnnotationSon(mainClass, ModMain.class)){
+                modids.add(mainClass.getAnnotation(ModMain.class).modID());
+            }
         }
+        String modsids = "";
+        for(String mod: modids){
+            modsids += mod+" ";
+        }
+        System.out.println("Mods: "+modsids);
+    }
+
+    public static ArrayList<String> getLoadedMods(){
+        return modids;
     }
 
     public Class<?> loadMainClassFromJar(File jarFile) {

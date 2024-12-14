@@ -35,7 +35,6 @@ public class CialloGameMainScreen extends Screen {
     }
 
     public void button(GuiGraphics g) {
-
         this.addWidget(Button.builder(Component.translatable("menu.singleplayer"),
                 (z) -> {
                     this.minecraft.setScreen(new SelectWorldScreen(this));

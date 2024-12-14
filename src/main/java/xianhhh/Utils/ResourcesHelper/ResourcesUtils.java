@@ -62,4 +62,14 @@ public class ResourcesUtils {
             e.printStackTrace();
         }
     }
+    public static boolean isAnnotationSon(Class<?> clazz, Class<? extends Annotation> mainAn){
+        try {
+            if (clazz.isAnnotationPresent(mainAn)) {
+               return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
