@@ -1,10 +1,9 @@
 package xianhhh.Module.Render;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.world.entity.Entity;
 import xianhhh.Event.EventBus.Annotation.EventTarget;
-import xianhhh.Event.Events.Render3DEvent;
 import xianhhh.Event.Events.Render2DEvent;
+import xianhhh.Event.Events.Render3DEvent;
 import xianhhh.Module.Module;
 import xianhhh.Module.ModuleManager;
 import xianhhh.Utils.RenderUtils;
@@ -30,7 +29,7 @@ public class Title extends Module {
     @EventTarget
     public void render3D(Render3DEvent r){
         for(Entity e : WorldUtils.getEntitiesI()) {
-            RenderUtils.renderhitbox(new PoseStack(),e.getBoundingBox());
+            RenderUtils.renderhitbox(r.getPoseStack(),e.getBoundingBox());
         }
     }
 }

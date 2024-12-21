@@ -1,9 +1,7 @@
 package xianhhh.Event.Events;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.LevelRenderer;
-import net.minecraft.client.renderer.LightTexture;
 import org.joml.Matrix4f;
 import xianhhh.Event.Event;
 
