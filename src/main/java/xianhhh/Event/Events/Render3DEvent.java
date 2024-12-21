@@ -1,28 +1,45 @@
 package xianhhh.Event.Events;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.client.renderer.LevelRenderer;
+import net.minecraft.client.renderer.LightTexture;
+import org.joml.Matrix4f;
 import xianhhh.Event.Event;
 
 public class Render3DEvent extends Event {
-    private float partialTick;
-    private long nanos;
-    private boolean flag;
+    private final LevelRenderer levelRenderer;
+    private final PoseStack poseStack;
+    private final float partialTick;
+    private final Matrix4f projectionMatrix;
+    private final long startNanos;
+
+    public Render3DEvent(LevelRenderer levelRenderer, PoseStack poseStack, float partialTick, Matrix4f projectionMatrix, long startNanos) {
+        super("Render3DEvent");
+        this.levelRenderer = levelRenderer;
+        this.poseStack = poseStack;
+        this.partialTick = partialTick;
+        this.projectionMatrix = projectionMatrix;
+        this.startNanos = startNanos;
+    }
+
+    public LevelRenderer getLevelRenderer() {
+        return levelRenderer;
+    }
+
+    public PoseStack getPoseStack() {
+        return poseStack;
+    }
 
     public float getPartialTick() {
         return partialTick;
     }
 
-    public long getNanos() {
-        return nanos;
+    public Matrix4f getProjectionMatrix() {
+        return projectionMatrix;
     }
 
-    public boolean isFlag() {
-        return flag;
-    }
-
-    public Render3DEvent(float partialTick, long nanos, boolean flag) {
-        super("Render3DEvent");
-        this.partialTick = partialTick;
-        this.nanos = nanos;
-        this.flag = flag;
+    public long getStartNanos() {
+        return startNanos;
     }
 }

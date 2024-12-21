@@ -1,9 +1,8 @@
 package xianhhh.Module.Render;
 
-import com.google.common.eventbus.Subscribe;
 import net.minecraft.client.gui.GuiGraphics;
 import xianhhh.Event.EventBus.Annotation.EventTarget;
-import xianhhh.Event.Events.RenderEvent;
+import xianhhh.Event.Events.Render2DEvent;
 import xianhhh.Module.Module;
 import xianhhh.Utils.RenderUtils;
 
@@ -17,7 +16,7 @@ public class TabGui extends Module {
     private final GuiGraphics g = RenderUtils.gui;
 
     @EventTarget
-    public void onRender(RenderEvent e) {
+    public void onRender(Render2DEvent e) {
 
     }
 }

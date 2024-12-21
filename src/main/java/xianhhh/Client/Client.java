@@ -4,9 +4,6 @@ import net.minecraft.SharedConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
-import net.minecraft.network.protocol.game.ClientboundPlayerCombatEndPacket;
-import net.minecraft.network.protocol.game.ClientboundPlayerPositionPacket;
-import net.minecraft.network.protocol.game.ServerboundPlayerActionPacket;
 import xianhhh.Client.ClickGui.ClickGui;
 import xianhhh.Client.Gui.CialloGameMainScreen;
 import xianhhh.Client.Gui.StartScreen;
@@ -14,7 +11,6 @@ import xianhhh.Command.CommandManager;
 import xianhhh.Event.EventHandleT;
 import xianhhh.ModLoader.ModLoader;
 import xianhhh.Module.ModuleManager;
-import xianhhh.Utils.ResourcesHelper.ResourcesUtils;
 
 public class Client {
 

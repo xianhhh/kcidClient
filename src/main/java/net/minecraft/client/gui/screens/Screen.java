@@ -55,7 +55,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import org.slf4j.Logger;
 import xianhhh.Client.Client;
 import xianhhh.Event.EventHandleT;
-import xianhhh.Event.Events.RenderEvent;
 import xianhhh.Event.Events.TickEvent;
 
 @OnlyIn(Dist.CLIENT)

@@ -1,7 +1,5 @@
 package xianhhh.Module.Render;
 
-import com.google.common.eventbus.Subscribe;
-import xianhhh.Module.Category;
 import xianhhh.Module.Module;
 import xianhhh.WebUi.WebUiBase;
 

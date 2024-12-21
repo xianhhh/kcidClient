@@ -3,6 +3,8 @@ package xianhhh.Event;
 public class Event{
     private final String name;
     private boolean cancel;
+
+
     public Event(String name){
         this.name = name;
         this.cancel = false;

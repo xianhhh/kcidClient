@@ -1,13 +1,12 @@
 package xianhhh.Module.Render;
 
-import com.google.common.eventbus.Subscribe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import xianhhh.Event.EventBus.Annotation.EventTarget;
-import xianhhh.Event.Events.RenderEvent;
+import xianhhh.Event.Events.Render2DEvent;
 import xianhhh.Module.Module;
 import xianhhh.Utils.RenderUtils;
 
@@ -19,7 +18,7 @@ public class TargetInformation extends Module {
     }
 
     @EventTarget
-    public void render(RenderEvent e){
+    public void render(Render2DEvent e){
         int width = RenderUtils.gui.guiWidth();
         int height = RenderUtils.gui.guiHeight();
         //Target

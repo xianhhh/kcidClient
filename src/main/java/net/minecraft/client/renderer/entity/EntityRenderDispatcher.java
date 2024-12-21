@@ -54,6 +54,10 @@ import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
+import xianhhh.Client.Client;
+import xianhhh.Event.EventHandleT;
+import xianhhh.Event.Events.EntityRenderEvent;
+
 
 @OnlyIn(Dist.CLIENT)
 public class EntityRenderDispatcher implements ResourceManagerReloadListener {
@@ -132,6 +136,7 @@ public class EntityRenderDispatcher implements ResourceManagerReloadListener {
       EntityRenderer<? super E> entityrenderer = this.getRenderer(p_114385_);
 
       try {
+         Client.eventHandle.supe(new EntityRenderEvent<>(p_114385_,p_114386_,p_114387_,p_114388_,p_114389_,p_114390_,p_114391_,p_114392_,p_114393_), EventHandleT.Mode.POST);
          Vec3 vec3 = entityrenderer.getRenderOffset(p_114385_, p_114390_);
          double d2 = p_114386_ + vec3.x();
          double d3 = p_114387_ + vec3.y();
@@ -155,7 +160,6 @@ public class EntityRenderDispatcher implements ResourceManagerReloadListener {
          if (this.renderHitBoxes && !p_114385_.isInvisible() && !Minecraft.getInstance().showOnlyReducedInfo()) {
             renderHitbox(p_114391_, p_114392_.getBuffer(RenderType.lines()), p_114385_, p_114390_);
          }
-
          p_114391_.popPose();
       } catch (Throwable throwable) {
          CrashReport crashreport = CrashReport.forThrowable(throwable, "Rendering entity in world");

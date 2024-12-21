@@ -113,10 +113,6 @@ import net.minecraft.world.scores.PlayerTeam;
 import net.minecraft.world.scores.Scoreboard;
 import net.minecraft.world.scores.Team;
 import org.slf4j.Logger;
-import xianhhh.Client.Client;
-import xianhhh.Event.EventHandleT;
-import xianhhh.Event.Events.RenderEvent;
-import xianhhh.Event.Events.TickEvent;
 
 public abstract class Player extends LivingEntity {
    private static final Logger LOGGER = LogUtils.getLogger();

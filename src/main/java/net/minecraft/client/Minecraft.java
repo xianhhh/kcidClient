@@ -789,7 +789,6 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
          this.emergencySave();
          crash(crashreport);
       }
-
    }
 
    void selectMainFont(boolean p_91337_) {

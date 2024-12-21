@@ -1,6 +1,5 @@
 package xianhhh.Module.Fun;
 
-import com.google.common.eventbus.Subscribe;
 import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.Events.TickEvent;
 import xianhhh.Module.Module;

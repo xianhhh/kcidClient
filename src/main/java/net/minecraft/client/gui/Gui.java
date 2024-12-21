@@ -70,8 +70,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import xianhhh.Client.Client;
 import xianhhh.Event.EventHandleT;
-import xianhhh.Event.Events.RenderEvent;
-import xianhhh.Event.Events.TickEvent;
+import xianhhh.Event.Events.Render2DEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class Gui {
@@ -176,8 +175,7 @@ public class Gui {
    }
 
    public void render(GuiGraphics p_282884_, float p_282611_) {
-
-
+      Client.eventHandle.supe(new Render2DEvent(p_282884_,p_282611_), EventHandleT.Mode.POST);
       Window window = this.minecraft.getWindow();
       this.screenWidth = p_282884_.guiWidth();
       this.screenHeight = p_282884_.guiHeight();
@@ -269,7 +267,6 @@ public class Gui {
       }
 
       if (!this.minecraft.options.hideGui) {
-         Client.eventHandle.supe(new RenderEvent(p_282611_), EventHandleT.Mode.POST);
          if (this.overlayMessageString != null && this.overlayMessageTime > 0) {
             this.minecraft.getProfiler().push("overlayMessage");
             float f3 = (float)this.overlayMessageTime - p_282611_;

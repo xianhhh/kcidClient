@@ -2,8 +2,6 @@ package xianhhh.Client.Gui;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
-import xianhhh.Utils.RenderUtils;
 
 public class NormalMainGuiScreen extends Screen {
     protected NormalMainGuiScreen() {

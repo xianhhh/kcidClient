@@ -1,7 +1,5 @@
 package xianhhh.CloudUpdate;
 
-import java.net.URL;
-
 public class CloudUpdate {
     public void download(){
         try{
