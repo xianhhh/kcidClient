@@ -1,6 +1,7 @@
 package xianhhh.Module.Render;
 
 import net.minecraft.world.entity.Entity;
+import org.lwjgl.glfw.GLFW;
 import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.Events.Render2DEvent;
 import xianhhh.Event.Events.Render3DEvent;
@@ -14,7 +15,7 @@ import java.awt.event.KeyEvent;
 
 public class Title extends Module {
     public Title() {
-        super("Title", KeyEvent.VK_Z, xianhhh.Module.Category.Render);
+        super("Title", GLFW.GLFW_KEY_Z, xianhhh.Module.Category.Render);
     }
     @EventTarget
     public void render(Render2DEvent r){

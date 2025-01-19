@@ -54,7 +54,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.slf4j.Logger;
 import xianhhh.Client.Client;
-import xianhhh.Event.EventHandleT;
 import xianhhh.Event.Events.TickEvent;
 
 @OnlyIn(Dist.CLIENT)
@@ -119,8 +118,6 @@ public abstract class Screen extends AbstractContainerEventHandler implements Re
 
    public void render(GuiGraphics p_281549_, int p_281550_, int p_282878_, float p_282465_) {
       this.renderBackground(p_281549_, p_281550_, p_282878_, p_282465_);
-
-
 
       for(Renderable renderable : this.renderables) {
          renderable.render(p_281549_, p_281550_, p_282878_, p_282465_);
@@ -348,9 +345,7 @@ public abstract class Screen extends AbstractContainerEventHandler implements Re
    }
 
    public void tick() {
-      if(Client.eventHandle != null) {
-         Client.eventHandle.supe(new TickEvent(), EventHandleT.Mode.POST);
-      }
+
    }
 
    public void removed() {

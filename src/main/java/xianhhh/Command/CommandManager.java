@@ -1,11 +1,10 @@
 package xianhhh.Command;
 
-import com.google.common.eventbus.Subscribe;
 import xianhhh.Client.Client;
 import xianhhh.Command.Commands.BindModuleCommand;
 import xianhhh.Command.Commands.HelpCommand;
 import xianhhh.Command.Commands.ToggleModuleCommand;
-import xianhhh.Event.EventHandleT;
+import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.Events.SendTextEvent;
 import xianhhh.Utils.PlayerUtils;
 import xianhhh.Utils.SortUtils;
@@ -20,7 +19,7 @@ public class CommandManager {
     public CommandManager() {
         commands = new ArrayList<>();
         this.startCommandString = ".";
-        Client.eventHandle.supe(this, EventHandleT.Mode.REGISTER);
+        Client.eventBus.register(this);
     }
 
     public void register() {
@@ -28,7 +27,7 @@ public class CommandManager {
         commands.add(new BindModuleCommand());
         commands.add(new HelpCommand());
     }
-@Subscribe
+@EventTarget
     public void start(SendTextEvent e) {
         String message = e.getText();
         if(message.startsWith(startCommandString)){

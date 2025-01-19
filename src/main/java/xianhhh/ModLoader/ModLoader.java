@@ -2,7 +2,6 @@ package xianhhh.ModLoader;
 
 import xianhhh.Client.Client;
 import xianhhh.Event.EventBus.Annotation.EventTarget;
-import xianhhh.Event.EventHandleT;
 import xianhhh.Event.Events.GameStartEvent;
 import xianhhh.ModLoader.Annotation.ModLoadMetHod;
 import xianhhh.ModLoader.Annotation.ModMain;
@@ -19,7 +18,7 @@ import java.util.jar.JarFile;
 public class ModLoader {
     public static final ArrayList<String> modids = new ArrayList<String>();
     public static void registerSelf() {
-        Client.eventHandle.supe(new ModLoader(), EventHandleT.Mode.REGISTER);
+        Client.eventBus.register(new ModLoader());
     }
 
     @EventTarget

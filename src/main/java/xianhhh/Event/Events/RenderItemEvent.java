@@ -10,7 +10,6 @@ public class RenderItemEvent extends Event {
     private float partialTick;
 
     public RenderItemEvent(PoseStack poseStack, Camera camera, float partialTick) {
-        super("RenderItemEvent");
         this.poseStack = poseStack;
         this.camera = camera;
         this.partialTick = partialTick;

@@ -87,10 +87,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.slf4j.Logger;
-import xianhhh.Client.Client;
-import xianhhh.Command.Command;
-import xianhhh.Event.EventHandleT;
-import xianhhh.Event.Events.SendTextEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class LocalPlayer extends AbstractClientPlayer {

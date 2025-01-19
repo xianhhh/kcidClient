@@ -119,7 +119,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.scores.PlayerTeam;
 import org.slf4j.Logger;
 import xianhhh.Client.Client;
-import xianhhh.Event.EventHandleT;
 import xianhhh.Event.Events.TickEvent;
 
 public abstract class LivingEntity extends Entity implements Attackable {
@@ -2361,7 +2360,7 @@ public abstract class LivingEntity extends Entity implements Attackable {
       }
 
       this.refreshDirtyAttributes();
-      Client.eventHandle.supe(new TickEvent(), EventHandleT.Mode.POST);
+      Client.eventBus.post(new TickEvent());
    }
 
    private void detectEquipmentUpdates() {

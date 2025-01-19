@@ -22,8 +22,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.apache.commons.lang3.StringUtils;
 import xianhhh.Client.Client;
-import xianhhh.Command.Command;
-import xianhhh.Event.EventHandleT;
 import xianhhh.Event.Events.SendTextEvent;
 
 @OnlyIn(Dist.CLIENT)
@@ -170,7 +168,7 @@ public class ChatListener {
       ChatLog chatlog = this.minecraft.getReportingContext().chatLog();
       chatlog.push(LoggedChatMessage.player(p_248589_, p_252155_, p_248881_));
       //Client.commandManager.start(p_252155_.signedContent());
-      Client.eventHandle.supe(new SendTextEvent(p_252155_.signedContent()), EventHandleT.Mode.POST);
+      Client.eventBus.post(new SendTextEvent(p_252155_.signedContent()));
    }
 
    private void logSystemMessage(Component p_240609_, Instant p_240541_) {

@@ -11,17 +11,14 @@ public class SendTextEvent extends Event {
     }
 
     public SendTextEvent(String text) {
-        super("SendTextEvent");
         this.text = text;
     }
 
     public SendTextEvent() {
-        super("SendTextEvent");
         this.text = "";
     }
 
     public SendTextEvent(Component text) {
-        super("SendTextEvent");
         this.text = text.getString();
     }
 }

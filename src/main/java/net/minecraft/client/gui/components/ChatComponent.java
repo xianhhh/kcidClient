@@ -24,9 +24,6 @@ import net.minecraft.world.entity.player.ChatVisiblity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.slf4j.Logger;
-import xianhhh.Client.Client;
-import xianhhh.Event.EventHandleT;
-import xianhhh.Event.Events.SendTextEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class ChatComponent {

@@ -13,7 +13,6 @@ public class Render3DEvent extends Event {
     private final long startNanos;
 
     public Render3DEvent(LevelRenderer levelRenderer, PoseStack poseStack, float partialTick, Matrix4f projectionMatrix, long startNanos) {
-        super("Render3DEvent");
         this.levelRenderer = levelRenderer;
         this.poseStack = poseStack;
         this.partialTick = partialTick;

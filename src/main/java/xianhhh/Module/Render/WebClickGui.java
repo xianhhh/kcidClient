@@ -1,5 +1,6 @@
 package xianhhh.Module.Render;
 
+import org.lwjgl.glfw.GLFW;
 import xianhhh.Module.Module;
 import xianhhh.WebUi.WebUiBase;
 
@@ -8,7 +9,7 @@ import java.awt.event.KeyEvent;
 
 public class WebClickGui extends Module {
     public WebClickGui() {
-        super("WebClickGui", KeyEvent.VK_P, xianhhh.Module.Category.Render);
+        super("WebClickGui", GLFW.GLFW_KEY_P, xianhhh.Module.Category.Render);
     }
 
 
