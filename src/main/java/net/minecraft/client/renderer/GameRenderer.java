@@ -82,6 +82,7 @@ import org.joml.Matrix4f;
 import org.joml.Vector3f;
 import org.slf4j.Logger;
 import xianhhh.Client.Client;
+import xianhhh.Event.EventHandleT;
 import xianhhh.Event.Events.Render3DEvent;
 import xianhhh.Event.Events.RenderItemEvent;
 
@@ -826,7 +827,7 @@ public class GameRenderer implements AutoCloseable {
 
    private void renderItemInHand(PoseStack p_109121_, Camera p_109122_, float p_109123_) {
       if (!this.panoramicMode) {
-         Client.eventBus.post(new RenderItemEvent(p_109121_,p_109122_,p_109123_));
+         Client.eventHandle.supe(new RenderItemEvent(p_109121_,p_109122_,p_109123_), EventHandleT.Mode.POST);
          this.resetProjectionMatrix(this.getProjectionMatrix(this.getFov(p_109122_, p_109123_, false)));
          p_109121_.setIdentity();
          p_109121_.pushPose();
@@ -1111,7 +1112,7 @@ public class GameRenderer implements AutoCloseable {
        RenderSystem.setInverseViewRotationMatrix(matrix3f);
        this.minecraft.levelRenderer.prepareCullFrustum(p_109092_, camera.getPosition(), this.getProjectionMatrix(Math.max(d0, (double) this.minecraft.options.fov().get().intValue())));
        this.minecraft.levelRenderer.renderLevel(p_109092_, p_109090_, p_109091_, flag, camera, this, this.lightTexture, matrix4f);
-       Client.eventBus.post(new Render3DEvent(this.minecraft.levelRenderer, p_109092_, p_109090_, matrix4f, p_109091_));
+       Client.eventHandle.supe(new Render3DEvent(this.minecraft.levelRenderer, p_109092_, p_109090_, matrix4f, p_109091_), EventHandleT.Mode.POST);
        this.minecraft.getProfiler().popPush("hand");
        if (this.renderHand) {
            RenderSystem.clear(256, Minecraft.ON_OSX);

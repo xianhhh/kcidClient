@@ -1,14 +1,20 @@
 package xianhhh.Event;
 
-public class Event implements Cancellable{
+public class Event{
+    private final String name;
     private boolean cancel;
 
 
-    public Event(){
+    public Event(String name){
+        this.name = name;
         this.cancel = false;
     }
 
-    public void setCancelled(boolean cancel){
+    public String getName() {
+        return name;
+    }
+
+    public void setCancel(boolean cancel){
         this.cancel = cancel;
     }
 

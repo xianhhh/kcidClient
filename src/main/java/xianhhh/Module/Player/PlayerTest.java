@@ -1,7 +1,6 @@
 package xianhhh.Module.Player;
 
 import net.minecraft.world.entity.Entity;
-import org.lwjgl.glfw.GLFW;
 import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.Events.TickEvent;
 import xianhhh.Module.Module;
@@ -11,7 +10,7 @@ import java.awt.event.KeyEvent;
 
 public class PlayerTest extends Module {
     public PlayerTest() {
-        super("PlayerTest", GLFW.GLFW_KEY_V, xianhhh.Module.Category.Player);
+        super("PlayerTest", KeyEvent.VK_V, xianhhh.Module.Category.Player);
     }
 
     @EventTarget

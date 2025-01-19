@@ -318,8 +318,8 @@ public class KeyboardHandler {
    public void keyPress(long p_90894_, int p_90895_, int p_90896_, int p_90897_, int p_90898_) {
       if (p_90894_ == this.minecraft.getWindow().getWindow()) {
          if(p_90897_ == 1) {
-                  KeyEventS key = new KeyEventS(p_90894_,p_90895_,p_90896_,p_90897_,p_90898_);
-                  Client.eventBus.post(key);
+                  KeyEventS key = new KeyEventS(p_90895_);
+                  ModuleManager.onKeyT(p_90895_);
          }
          boolean flag = InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), 292);
          if (this.debugCrashKeyTime > 0L) {

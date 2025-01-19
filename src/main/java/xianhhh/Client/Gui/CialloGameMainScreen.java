@@ -24,12 +24,10 @@ public class CialloGameMainScreen extends Screen {
     public CialloGameMainScreen() {
         super(Component.translatable("narrator.screen.title"));
     }
-    public void renderBackground(GuiGraphics g,int p_299421_, int p_298679_, float p_297268_){
-        g.fillGradient(0, 0, this.width, this.height, Color.WHITE.getRGB(), Color.WHITE.getRGB());
-        RenderUtils.fastblit(g, q, 0, 0, this.width, this.height, this.width, this.height);
-    }
+
 
     public void render(GuiGraphics g, int p_281550_, int p_282878_, float p_282465_) {
+
         super.render(g, p_281550_, p_282878_, p_282465_);
         g.drawString(this.font, "ZZZZZ", this.width - RenderUtils.getStringWidth("ZZZZZ").intValue(), this.height - 10, Color.WHITE.getRGB());
         RenderUtils.drawList(g, ModuleManager.SmodulesA, Color.BLACK, new Color(0, 0, 0, 70));
@@ -89,5 +87,11 @@ public class CialloGameMainScreen extends Screen {
 
     protected void init(){
 
+    }
+
+    public void renderBackground(GuiGraphics g,int p_299421_, int p_298679_, float p_297268_){
+        g.fillGradient(0, 0, this.width, this.height, Color.WHITE.getRGB(), Color.WHITE.getRGB());
+        //RenderUtils.fastblit(g,r,0,0,this.width,this.height,this.width,this.height);
+        RenderUtils.fastblit(g, q, 0, 0, this.width, this.height, this.width, this.height);
     }
 }

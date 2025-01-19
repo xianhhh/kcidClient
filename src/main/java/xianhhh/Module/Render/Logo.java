@@ -2,7 +2,6 @@ package xianhhh.Module.Render;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
-import org.lwjgl.glfw.GLFW;
 import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.Events.Render2DEvent;
 import xianhhh.Module.Module;
@@ -13,7 +12,7 @@ import java.awt.event.KeyEvent;
 public class Logo extends Module {
 
     public Logo() {
-        super("Logo", GLFW.GLFW_KEY_U, xianhhh.Module.Category.Render);
+        super("Logo", KeyEvent.VK_U, xianhhh.Module.Category.Render);
     }
     private final ResourceLocation png = new ResourceLocation("pc/bmw.png");
     private final GuiGraphics g = RenderUtils.gui;

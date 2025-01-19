@@ -131,6 +131,9 @@ import org.joml.Matrix4f;
 import org.joml.Vector3d;
 import org.joml.Vector4f;
 import org.slf4j.Logger;
+import xianhhh.Client.Client;
+import xianhhh.Event.EventHandleT;
+import xianhhh.Event.Events.Render3DEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class LevelRenderer implements ResourceManagerReloadListener, AutoCloseable {

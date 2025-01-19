@@ -69,6 +69,7 @@ import net.minecraft.world.scores.Scoreboard;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import xianhhh.Client.Client;
+import xianhhh.Event.EventHandleT;
 import xianhhh.Event.Events.Render2DEvent;
 
 @OnlyIn(Dist.CLIENT)
@@ -174,7 +175,7 @@ public class Gui {
    }
 
    public void render(GuiGraphics p_282884_, float p_282611_) {
-      Client.eventBus.post(new Render2DEvent(p_282884_,p_282611_));
+      Client.eventHandle.supe(new Render2DEvent(p_282884_,p_282611_), EventHandleT.Mode.POST);
       Window window = this.minecraft.getWindow();
       this.screenWidth = p_282884_.guiWidth();
       this.screenHeight = p_282884_.guiHeight();

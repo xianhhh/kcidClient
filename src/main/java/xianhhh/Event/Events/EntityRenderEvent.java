@@ -18,6 +18,7 @@ public class EntityRenderEvent<V extends Entity> extends Event {
 
 
     public <E extends Entity> EntityRenderEvent(E entity, double x, double y, double z, float yrotation, float offset, PoseStack poseStack, MultiBufferSource multiBufferSource, int packedLightCoords) {
+        super("EntityRenderEvent");
         this.entity = (V) entity;
         this.x = x;
         this.y = y;

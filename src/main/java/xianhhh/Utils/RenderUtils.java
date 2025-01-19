@@ -1,18 +1,14 @@
 package xianhhh.Utils;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.blaze3d.vertex.*;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.FastColor;
 import net.minecraft.world.phys.AABB;
-import org.joml.Matrix4f;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -78,70 +74,5 @@ public class RenderUtils {
 
     public static void renderhitbox(PoseStack poseStack, AABB aabb) {
         LevelRenderer.renderLineBox(poseStack, ((MultiBufferSource)Minecraft.getInstance().renderBuffers().outlineBufferSource()).getBuffer(RenderType.lines()), aabb.minX, aabb.minY, aabb.minZ, aabb.maxX, aabb.maxY, aabb.maxZ, 1,1,1,1);
-    }
-
-    public static void renderRoundFastMiddle(PoseStack pose,double x,double y,double width,double height,double radius,double samples,Color c){
-        renderRound(pose,c.getRGB(),x-width/2,y,x+width/2,y+height,radius,samples);
-    }
-
-    public static void renderRoundFast(PoseStack pose,double x,double y,double width,double height,double radius,double samples,Color c){
-
-        renderRound(pose, c.getRGB(),x,y,x+width,y+height,radius,samples);
-    }
-
-    public static void renderRound(PoseStack pose,double x,double y,double x2,double y2,double radius,double samples,Color c){
-
-        renderRound(pose,c.getRGB(),x,y,x2,y2,radius,samples);
-    }
-
-
-    public static void renderRound(PoseStack pose,int rgb, double fromX, double fromY, double toX, double toY, double radius, double samples){
-        Tesselator tesselator = Tesselator.getInstance();
-        BufferBuilder bufferBuilder = tesselator.getBuilder();
-
-        Matrix4f matrix = pose.last().pose();
-
-        float ca = (float)FastColor.ARGB32.alpha(rgb) / 255.0F;
-        float cr = (float)FastColor.ARGB32.red(rgb) / 255.0F;
-        float cg = (float)FastColor.ARGB32.green(rgb) / 255.0F;
-        float cb = (float)FastColor.ARGB32.blue(rgb) / 255.0F;
-
-        RenderSystem.enableBlend();  // 开启混合
-        RenderSystem.defaultBlendFunc();  // 使用默认混合函数
-        RenderSystem.disableDepthTest();  // 禁用深度测试，确保透明物体正确显示
-
-        bufferBuilder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION_COLOR);
-
-        // 绘制圆角矩形的四个角
-        double[][] map = new double[][]{
-                {toX - radius, toY - radius, radius},
-                {toX - radius, fromY + radius, radius},
-                {fromX + radius, fromY + radius, radius},
-                {fromX + radius, toY - radius, radius}
-        };
-
-        // 遍历四个角，分别绘制圆弧
-        for (int i = 0; i < 4; i++) {
-            double[] current = map[i];
-            double rad = current[2];
-            for (double r = i * 90d; r < (360 / 4d + i * 90d); r += (90 / samples)) {
-                float rad1 = (float) Math.toRadians(r);
-                float sin = (float) (Math.sin(rad1) * rad);
-                float cos = (float) (Math.cos(rad1) * rad);
-                bufferBuilder.vertex(matrix, (float) current[0] + sin, (float) current[1] + cos, 0.0F)
-                        .color(cr, cg, cb, ca)  // 使用传入的透明度
-                        .endVertex();
-            }
-            float rad1 = (float) Math.toRadians((360 / 4d + i * 90d));
-            float sin = (float) (Math.sin(rad1) * rad);
-            float cos = (float) (Math.cos(rad1) * rad);
-            bufferBuilder.vertex(matrix, (float) current[0] + sin, (float) current[1] + cos, 0.0F)
-                    .color(cr, cg, cb, ca)  // 使用透明颜色
-                    .endVertex();
-        }
-
-        RenderSystem.enableDepthTest();  // 恢复深度测试
-
-        tesselator.end();  // 结束渲染
     }
 }
