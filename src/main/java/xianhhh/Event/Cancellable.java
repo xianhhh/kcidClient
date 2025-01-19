@@ -1,8 +1,7 @@
 package xianhhh.Event;
 
-import java.util.EventListener;
 
-public interface Listener extends EventListener {
+public interface Cancellable {
     void setCancelled(boolean cancel);
     void cancel();
     boolean isCancelled();

@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import xianhhh.Client.Client;
 import xianhhh.Utils.RenderUtils;
 
 import java.awt.*;
@@ -22,8 +23,8 @@ public class StartScreen extends Screen {
         int width = g.guiWidth(), height = g.guiHeight();
         int x = (width - mc.font.width(String.valueOf(baseString))) / 2, y = (height - mc.font.lineHeight) / 2;
 
-        totalTime +=  30;
-        if (totalTime >= 1000){
+        totalTime += 1;
+        if (totalTime >= 3){
             baseString.append(".");
             if (Objects.equals(String.valueOf(baseString), "Starting....")){
                 baseString = new StringBuilder("Starting");
@@ -32,8 +33,8 @@ public class StartScreen extends Screen {
             RenderUtils.gui.drawString(mc.font, String.valueOf(baseString), x, y, new Color(255, 255, 255, 255).getRGB());
             totalTime = 0;
             times++;
-        }else if (times == 15){
-            mc.setScreen(new CialloGameMainScreen());
+        }else if (times == 1){
+            mc.setScreen(Client.gameMainScreen);
         }
     }
 }

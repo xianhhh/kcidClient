@@ -237,7 +237,6 @@ import org.joml.Matrix4f;
 import org.lwjgl.util.tinyfd.TinyFileDialogs;
 import org.slf4j.Logger;
 import xianhhh.Client.Client;
-import xianhhh.Event.EventHandleT;
 import xianhhh.Event.Events.GameStartEvent;
 
 @OnlyIn(Dist.CLIENT)
@@ -596,7 +595,7 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
          if (p_299870_ != null && p_299870_.quickPlayData().isEnabled()) {
             QuickPlay.connect(this, p_299870_.quickPlayData(), p_299870_.realmsClient());
          } else {
-            this.setScreen(Client.startScreen);
+            this.setScreen(Client.gameMainScreen);
             //this.setScreen(new CialloGameMainScreen());
          }
 
@@ -729,7 +728,7 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
          this.disconnect();
       }
 
-      this.setScreen(Client.startScreen);
+      this.setScreen(Client.gameMainScreen);
       //this.setScreen(new CialloGameMainScreen());
       this.addResourcePackLoadFailToast((Component)null);
    }
@@ -741,7 +740,7 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
 
    public void run() {
       Client.Start();
-      Client.eventHandle.supe(new GameStartEvent(), EventHandleT.Mode.POST);
+      Client.eventBus.post(new GameStartEvent());
       this.gameThread = Thread.currentThread();
       if (Runtime.getRuntime().availableProcessors() > 4) {
          this.gameThread.setPriority(10);
@@ -1017,43 +1016,6 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
       }
 
       if (p_91153_ == null && this.level == null) {
-         p_91153_ = Client.startScreen;
-         //p_91153_ = new CialloGameMainScreen();
-      } else if (p_91153_ == null && this.player.isDeadOrDying()) {
-         if (this.player.shouldShowDeathScreen()) {
-            p_91153_ = new DeathScreen((Component)null, this.level.getLevelData().isHardcore());
-         } else {
-            this.player.respawn();
-         }
-      }
-
-      this.screen = p_91153_;
-      if (this.screen != null) {
-         this.screen.added();
-      }
-
-      BufferUploader.reset();
-      if (p_91153_ != null) {
-         this.mouseHandler.releaseMouse();
-         KeyMapping.releaseAll();
-         p_91153_.init(this, this.window.getGuiScaledWidth(), this.window.getGuiScaledHeight());
-         this.noRender = false;
-      } else {
-         this.soundManager.resume();
-         this.mouseHandler.grabMouse();
-      }
-   }
-
-   public void setScreenOnEndingGame(@Nullable Screen p_91153_) {
-      if (SharedConstants.IS_RUNNING_IN_IDE && Thread.currentThread() != this.gameThread) {
-         LOGGER.error("setScreen called from non-game thread");
-      }
-
-      if (this.screen != null) {
-         this.screen.removed();
-      }
-
-      if (p_91153_ == null && this.level == null) {
          p_91153_ = Client.gameMainScreen;
          //p_91153_ = new CialloGameMainScreen();
       } else if (p_91153_ == null && this.player.isDeadOrDying()) {
@@ -1079,8 +1041,6 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
          this.soundManager.resume();
          this.mouseHandler.grabMouse();
       }
-
-      this.updateTitle();
    }
 
    public void setOverlay(@Nullable Overlay p_91151_) {

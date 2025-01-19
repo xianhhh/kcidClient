@@ -1,5 +1,6 @@
 package xianhhh.Module.Render;
 
+import org.lwjgl.glfw.GLFW;
 import xianhhh.Client.ClickGui.ClickGui;
 import xianhhh.Module.Module;
 
@@ -7,7 +8,7 @@ import java.awt.event.KeyEvent;
 
 public class ClickGuiZ extends Module {
     public ClickGuiZ() {
-        super("ClickGui", KeyEvent.VK_X, xianhhh.Module.Category.Render);
+        super("ClickGui", GLFW.GLFW_KEY_X, xianhhh.Module.Category.Render);
     }
 
     @Override

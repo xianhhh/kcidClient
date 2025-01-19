@@ -1,5 +1,6 @@
 package xianhhh.Module.Render;
 
+import org.lwjgl.glfw.GLFW;
 import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.Events.Render2DEvent;
 import xianhhh.Module.Module;
@@ -12,7 +13,7 @@ import java.awt.event.KeyEvent;
 
 public class ArrayList extends Module {
     public ArrayList() {
-        super("ArrayList", KeyEvent.VK_B, xianhhh.Module.Category.Render);
+        super("ArrayList", GLFW.GLFW_KEY_B, xianhhh.Module.Category.Render);
     }
     @EventTarget
     public void onRender(Render2DEvent r){
