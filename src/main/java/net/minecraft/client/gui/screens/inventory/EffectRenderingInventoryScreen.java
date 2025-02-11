@@ -114,7 +114,6 @@ public abstract class EffectRenderingInventoryScreen<T extends AbstractContainer
          p_281462_.drawString(this.font, component1, p_283484_ + 10 + 18, i + 6 + 10, 8355711);
          i += p_282057_;
       }
-
    }
 
    private Component getEffectName(MobEffectInstance p_194001_) {
@@ -122,7 +121,6 @@ public abstract class EffectRenderingInventoryScreen<T extends AbstractContainer
       if (p_194001_.getAmplifier() >= 1 && p_194001_.getAmplifier() <= 9) {
          mutablecomponent.append(CommonComponents.SPACE).append(Component.translatable("enchantment.level." + (p_194001_.getAmplifier() + 1)));
       }
-
       return mutablecomponent;
    }
 }
