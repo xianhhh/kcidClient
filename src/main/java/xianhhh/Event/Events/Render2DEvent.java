@@ -6,9 +6,9 @@ import xianhhh.Event.Event;
 public class Render2DEvent extends Event {
     private final GuiGraphics guiGraphics;
     private final float partialTick;
-    public Render2DEvent(GuiGraphics guiGraphics, float tick){//post in gui render overlay
+    public Render2DEvent(GuiGraphics guiGraphics, float partialTick){//post in gui render overlay
         this.guiGraphics = guiGraphics;
-        this.partialTick = tick;
+        this.partialTick = partialTick;
     }
 
     public GuiGraphics getGuiGraphics() {

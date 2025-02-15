@@ -6,6 +6,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.TitleScreen;
 import xianhhh.Client.ClickGui.ClickGui;
 import xianhhh.Client.Gui.CialloGameMainScreen;
+import xianhhh.Client.Gui.NormalMainGuiScreen;
 import xianhhh.Client.Gui.StartScreen;
 import xianhhh.Command.CommandManager;
 import xianhhh.Event.EventHandleT;
@@ -29,7 +30,7 @@ public class Client {
     public static final String NAME = "D1CK-Client";
 
     public static final Screen startScreen = new StartScreen();
-    public static final Screen gameMainScreen = new CialloGameMainScreen();
+    public static final Screen gameMainScreen = new NormalMainGuiScreen();
 
     private static Screen set(String name){
         switch (name) {
@@ -39,8 +40,8 @@ public class Client {
     }
 
     public static void Start() {
-        modManager = new ModuleManager();
         eventHandle = new EventHandleT();
+        modManager = new ModuleManager();
         commandManager = new CommandManager();
         modManager.register();
         commandManager.register();
@@ -63,7 +64,7 @@ public class Client {
                         while (true) {
                             if (mc.screen != null) {
                                 if(mc.screen instanceof TitleScreen) {
-                                    mc.setScreenOnEndingGame(new CialloGameMainScreen());//防止退出游戏绷端用的 别改
+
                                 }else if(!(mc.screen instanceof StartScreen)){
                                     //System.out.println(mc.screen.toString());
                                 }

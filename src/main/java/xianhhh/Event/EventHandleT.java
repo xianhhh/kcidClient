@@ -117,14 +117,11 @@ public class EventHandleT {
                         synchronized (lock) {
                             if (eventFire.get(v) == null && debug) {
                                 unfire(v);
-                                System.out.println("unfire " + v.getName());
                             } else {
                                 unfire(v);
                             }
-
                             if (!eventFire.get(v) && debug) {
                                 bus.post(v);
-                                System.out.println("post: " + v.getName());
                             } else {
                                 bus.post(v);
                             }

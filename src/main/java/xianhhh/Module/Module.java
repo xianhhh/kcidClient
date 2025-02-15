@@ -2,6 +2,7 @@ package xianhhh.Module;
 
 import net.minecraft.client.Minecraft;
 import xianhhh.Client.Client;
+import xianhhh.Event.EventHandleT;
 import xianhhh.Setting.SettingBase;
 import xianhhh.Utils.RenderUtils;
 import xianhhh.Utils.WorldUtils;
@@ -73,7 +74,7 @@ public class Module {
 
 
     public void onEnable() {
-        Client.eventBus.register(this);
+        Client.eventHandle.supe(this, EventHandleT.Mode.REGISTER);
         System.out.println(this.getName() + " Enable ");
         System.out.print(SettingBase.getSettingsName(this));
         ModuleManager.EnableModules.add(this.getName());
@@ -81,7 +82,7 @@ public class Module {
     }
 
     public void onDisable() {
-        Client.eventBus.unregister(this);
+        Client.eventHandle.supe(this, EventHandleT.Mode.UNREGISTER);
         System.out.println(this.getName() + " Disable ");
         ModuleManager.EnableModules.remove(this.getName());
         ModuleManager.EnableModulesM.remove(this);

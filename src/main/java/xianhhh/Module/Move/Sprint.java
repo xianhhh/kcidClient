@@ -6,8 +6,6 @@ import xianhhh.Event.Events.TickEvent;
 import xianhhh.Module.Module;
 import xianhhh.Setting.Settings.BoolSetting;
 
-import java.awt.event.KeyEvent;
-
 public class Sprint extends Module {
     public Sprint() {
         super("Sprint", GLFW.GLFW_KEY_R, xianhhh.Module.Category.Move);

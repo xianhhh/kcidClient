@@ -3,6 +3,7 @@ package xianhhh.Module;
 import net.minecraft.client.Minecraft;
 import xianhhh.Client.Client;
 import xianhhh.Event.EventBus.Annotation.EventTarget;
+import xianhhh.Event.EventHandleT;
 import xianhhh.Event.Events.KeyEventS;
 import xianhhh.Module.Fun.FreeCamera;
 import xianhhh.Module.Fun.Sound;
@@ -29,7 +30,7 @@ public class ModuleManager {
         SmodulesA = new java.util.ArrayList<String>();
         EnableModules = new java.util.ArrayList<String>();
         EnableModulesM = new java.util.ArrayList<Module>();
-        Client.eventBus.register(this);
+        Client.eventHandle.supe(this, EventHandleT.Mode.REGISTER);
     }
 
     private void addModule(Module module) {
@@ -60,11 +61,10 @@ public class ModuleManager {
         modulesA.add(m);
     }
 
-    @EventTarget
-    public void onKeyT(KeyEventS e){
+    public void onKeyT(int key){
         if(modulesA != null) {
             for (Module m : modulesA) {
-                if (m.getKey() == e.getKey() && Minecraft.getInstance().screen == null) {
+                if (m.getKey() == key && Minecraft.getInstance().screen == null) {
                     m.Toggle();
                 }
             }

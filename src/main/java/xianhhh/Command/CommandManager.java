@@ -5,6 +5,7 @@ import xianhhh.Client.Client;
 import xianhhh.Command.Commands.BindModuleCommand;
 import xianhhh.Command.Commands.HelpCommand;
 import xianhhh.Command.Commands.ToggleModuleCommand;
+import xianhhh.Event.EventBus.Annotation.EventTarget;
 import xianhhh.Event.EventHandleT;
 import xianhhh.Event.Events.SendTextEvent;
 import xianhhh.Utils.PlayerUtils;
@@ -28,7 +29,7 @@ public class CommandManager {
         commands.add(new BindModuleCommand());
         commands.add(new HelpCommand());
     }
-@Subscribe
+    @EventTarget
     public void start(SendTextEvent e) {
         String message = e.getText();
         if(message.startsWith(startCommandString)){
@@ -41,9 +42,10 @@ public class CommandManager {
             }else if(!(getCommand(message) instanceof HelpCommand)){
                 PlayerUtils.sendMessage("try .help");
             }else{
-                 getCommand(message).execute((String[]) null);
+                 getCommand(message).execute(null);
             }
         }
+        e.setCancelled(true);
     }
 
     public Command getCommand(String commandName){

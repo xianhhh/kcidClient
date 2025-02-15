@@ -132,6 +132,7 @@ public class ChatListener {
    }
 
    private boolean showMessageToPlayer(ChatType.Bound p_251766_, PlayerChatMessage p_249430_, Component p_249231_, GameProfile p_249177_, boolean p_251638_, Instant p_249665_) {
+      Client.eventHandle.supe(new SendTextEvent(p_249430_,p_251766_,p_249177_), EventHandleT.Mode.POST);
       ChatTrustLevel chattrustlevel = this.evaluateTrustLevel(p_249430_, p_249231_, p_249665_);
       if (p_251638_ && chattrustlevel.isNotSecure()) {
          return false;
@@ -170,7 +171,6 @@ public class ChatListener {
       ChatLog chatlog = this.minecraft.getReportingContext().chatLog();
       chatlog.push(LoggedChatMessage.player(p_248589_, p_252155_, p_248881_));
       //Client.commandManager.start(p_252155_.signedContent());
-      Client.eventHandle.supe(new SendTextEvent(p_252155_.signedContent()), EventHandleT.Mode.POST);
    }
 
    private void logSystemMessage(Component p_240609_, Instant p_240541_) {
